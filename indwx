@@ -102,42 +102,49 @@
   <style>body { box-sizing: border-box; }</style>
  </head>
  <body class="h-full bg-gray-50 overflow-auto">
-  <div id="app" class="h-full w-full"><!-- Login Page -->
+  <div id="app" class="h-full w-full">
+   <!-- Login Page -->
    <div id="login-page" class="min-h-full w-full gradient-header islamic-pattern flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md fade-in">
      <div class="text-center mb-8">
-      <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center"><span class="text-4xl">🌙</span>
+      <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
+       <span class="text-4xl">🌙</span>
       </div>
       <h1 class="text-5xl font-bold text-gray-800">Amaliah Ramadhan</h1>
       <p class="text-emerald-600 font-semibold text-sm mt-1">UPT SMP Negeri 1 Pinrang</p>
       <p class="text-gray-500 mt-1">Tracker &amp; Journal Ibadah</p>
      </div>
      <div class="space-y-4">
-      <div id="login-tabs" class="flex bg-gray-100 rounded-xl p-1 mb-6"><button onclick="switchLoginTab('siswa')" id="tab-siswa" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all bg-white shadow text-emerald-600">Murid</button> <button onclick="switchLoginTab('admin')" id="tab-admin" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all text-gray-500">Admin</button>
+      <div id="login-tabs" class="flex bg-gray-100 rounded-xl p-1 mb-6">
+       <button onclick="switchLoginTab('siswa')" id="tab-siswa" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all bg-white shadow text-emerald-600">Murid</button> <button onclick="switchLoginTab('admin')" id="tab-admin" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all text-gray-500">Admin</button>
       </div><!-- Siswa/Guru Login -->
       <div id="form-siswa" class="space-y-4">
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label> <input type="text" id="input-nama" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label> <input type="text" id="input-nama" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label> <input type="text" id="input-kelas" placeholder="Contoh: 7.1, 8.2, 9.3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label> <input type="text" id="input-kelas" placeholder="Contoh: 7.1, 8.2, 9.3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
        </div><button onclick="loginSiswa()" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg"> Masuk </button>
       </div><!-- Admin Login -->
       <div id="form-admin" class="space-y-4 hidden">
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Username</label> <input type="text" id="admin-username" placeholder="Username admin" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Username</label> <input type="text" id="admin-username" placeholder="Username admin" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Password</label> <input type="password" id="admin-password" placeholder="Password" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label> <input type="password" id="admin-password" placeholder="Password" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
        </div><button onclick="loginAdmin()" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg"> Masuk sebagai Admin </button>
       </div>
       <div id="login-error" class="hidden text-red-500 text-sm text-center mt-2"></div>
       <div class="mt-6 text-center text-sm text-gray-600">
        Belum punya akun? <button onclick="switchToRegistration()" class="text-emerald-600 font-semibold hover:text-emerald-700">Daftar Sekarang</button>
+       <p class="text-xs text-gray-400 mt-3">@Jamal Mahry</p>
       </div>
      </div>
     </div>
    </div><!-- Registration Page -->
    <div id="registration-page" class="hidden min-h-full w-full gradient-header islamic-pattern flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-2xl fade-in">
-     <div class="flex items-center gap-3 mb-6">
-      <button onclick="switchToLogin()" class="text-gray-600 hover:text-gray-800">←</button>
+     <div class="flex items-center gap-3 mb-6"><button onclick="switchToLogin()" class="text-gray-600 hover:text-gray-800">←</button>
       <div>
        <h1 class="text-3xl font-bold text-gray-800">Pembuatan Akun</h1>
        <p class="text-gray-500 text-sm">Isi form di bawah untuk membuat akun baru</p>
@@ -145,47 +152,62 @@
      </div>
      <form id="registration-form-login" class="space-y-4">
       <div class="space-y-4">
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label> <input type="text" id="reg-nama" required placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label> <input type="text" id="reg-nama" required placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">NIS (Nomor Induk Siswa) *</label> <input type="text" id="reg-nis" required placeholder="Contoh: 12345" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">NIS (Nomor Induk Siswa) *</label> <input type="text" id="reg-nis" required placeholder="Contoh: 12345" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Kelas *</label> <input type="text" id="reg-kelas" required placeholder="Contoh: 7.1, 8.2, 9.3" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Kelas *</label> <input type="text" id="reg-kelas" required placeholder="Contoh: 7.1, 8.2, 9.3" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">No. WhatsApp *</label> <input type="tel" id="reg-wa" required placeholder="08xx xxxx xxxx" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">No. WhatsApp *</label> <input type="tel" id="reg-wa" required placeholder="08xx xxxx xxxx" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
        </div>
       </div>
       <div id="reg-error" class="hidden text-red-500 text-sm bg-red-50 p-3 rounded-lg"></div>
-      <div class="flex gap-3 mt-6"><button type="button" onclick="switchToLogin()" class="flex-1 py-3 border border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">Batal</button> <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg">Buat Akun</button>
+      <div class="flex gap-3 mt-6">
+       <button type="button" onclick="switchToLogin()" class="flex-1 py-3 border border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">Batal</button> <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg">Buat Akun</button>
       </div>
      </form>
     </div>
    </div><!-- Main App -->
-   <div id="main-app" class="hidden h-full w-full"><!-- Mobile Header -->
+   <div id="main-app" class="hidden h-full w-full">
+    <!-- Mobile Header -->
     <header class="gradient-header islamic-pattern sticky top-0 z-50 shadow-lg">
      <div class="flex items-center justify-between px-4 py-3">
-      <div class="flex items-center gap-3"><button onclick="toggleSidebar()" class="md:hidden text-white p-2">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <div class="flex items-center gap-3">
+       <button onclick="toggleSidebar()" class="md:hidden text-white p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg></button>
-       <div class="flex items-center gap-2"><span class="text-2xl">🌙</span> <span class="text-white font-bold text-lg hidden sm:block">Amaliah Ramadhan</span>
+       <div class="flex items-center gap-2">
+        <span class="text-2xl">🌙</span> <span class="text-white font-bold text-lg hidden sm:block">Amaliah Ramadhan</span>
        </div>
       </div>
-      <div class="flex items-center gap-2"><button onclick="toggleDarkMode()" class="text-white p-2 rounded-lg hover:bg-white/10 transition-all"> <span id="dark-mode-icon">🌙</span> </button> <button onclick="logout()" class="text-white p-2 rounded-lg hover:bg-white/10 transition-all">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+      <div class="flex items-center gap-2">
+       <button onclick="toggleDarkMode()" class="text-white p-2 rounded-lg hover:bg-white/10 transition-all"> <span id="dark-mode-icon">🌙</span> </button> <button onclick="logout()" class="text-white p-2 rounded-lg hover:bg-white/10 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
         </svg></button>
       </div>
      </div>
     </header>
-    <div class="flex h-full"><!-- Sidebar -->
+    <div class="flex h-full">
+     <!-- Sidebar -->
      <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 bg-white shadow-xl transform transition-transform duration-300 sidebar-collapsed md:transform-none mt-14 md:mt-0">
-      <nav class="p-4 space-y-2"><button onclick="navigateTo('dashboard')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-emerald-600 bg-emerald-50" data-page="dashboard"> <span class="text-xl">🏠</span> <span class="font-medium">Dashboard</span> </button> <button onclick="navigateTo('target')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="target"> <span class="text-xl">✅</span> <span class="font-medium">Target Ibadah</span> </button> <button onclick="navigateTo('journal')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="journal"> <span class="text-xl">📔</span> <span class="font-medium">Journal</span> </button> <button onclick="navigateTo('quran')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="quran"> <span class="text-xl">��</span> <span class="font-medium">Al-Qur'an</span> </button> <button onclick="navigateTo('edukasi')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="edukasi"> <span class="text-xl">📚</span> <span class="font-medium">Edukasi</span> </button> <button onclick="navigateTo('statistik')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="statistik"> <span class="text-xl">📊</span> <span class="font-medium">Statistik</span> </button> <button onclick="navigateTo('profil')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="profil"> <span class="text-xl">����</span> <span class="font-medium">Profil</span> </button>
+      <nav class="p-4 space-y-2">
+       <button onclick="navigateTo('dashboard')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-emerald-600 bg-emerald-50" data-page="dashboard"> <span class="text-xl">🏠</span> <span class="font-medium">Dashboard</span> </button> <button onclick="navigateTo('target')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="target"> <span class="text-xl">✅</span> <span class="font-medium">Target Ibadah</span> </button> <button onclick="navigateTo('journal')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="journal"> <span class="text-xl">📔</span> <span class="font-medium">Journal</span> </button> <button onclick="navigateTo('quran')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="quran"> <span class="text-xl">��</span> <span class="font-medium">Al-Qur'an</span> </button> <button onclick="navigateTo('edukasi')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="edukasi"> <span class="text-xl">📚</span> <span class="font-medium">Edukasi</span> </button> <button onclick="navigateTo('statistik')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="statistik"> <span class="text-xl">📊</span> <span class="font-medium">Statistik</span> </button> <button onclick="navigateTo('profil')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="profil"> <span class="text-xl">����</span> <span class="font-medium">Profil</span> </button>
        <div id="admin-nav" class="hidden">
         <div class="border-t border-gray-200 my-4"></div><button onclick="navigateTo('admin')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-amber-50 text-gray-600" data-page="admin"> <span class="text-xl">⚙️</span> <span class="font-medium">Panel Admin</span> </button> <button onclick="navigateTo('pendaftaran')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-amber-50 text-gray-600" data-page="pendaftaran"> <span class="text-xl">📝</span> <span class="font-medium">Pendaftaran Murid</span> </button>
        </div>
       </nav>
      </aside><!-- Overlay -->
      <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleSidebar()"></div><!-- Main Content -->
-     <main class="flex-1 overflow-y-auto p-4 md:p-6"><!-- Dashboard Page -->
-      <div id="page-dashboard" class="page-content fade-in"><!-- Hero Section -->
+     <main class="flex-1 overflow-y-auto p-4 md:p-6">
+      <!-- Dashboard Page -->
+      <div id="page-dashboard" class="page-content fade-in">
+       <!-- Hero Section -->
        <div class="gradient-header islamic-pattern rounded-2xl p-6 mb-6 text-white">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between">
          <div>
@@ -206,20 +228,25 @@
         <h2 class="text-lg font-semibold text-gray-800 mb-4">Progress Ibadah Hari Ini</h2>
         <div class="flex flex-col md:flex-row items-center gap-6">
          <div class="relative">
-          <svg class="w-32 h-32 progress-ring"><circle cx="64" cy="64" r="56" stroke="#e5e7eb" stroke-width="8" fill="none" /> <circle id="progress-circle" cx="64" cy="64" r="56" stroke="#0F9D58" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="352" stroke-dashoffset="352" />
+          <svg class="w-32 h-32 progress-ring">
+           <circle cx="64" cy="64" r="56" stroke="#e5e7eb" stroke-width="8" fill="none" /> <circle id="progress-circle" cx="64" cy="64" r="56" stroke="#0F9D58" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="352" stroke-dashoffset="352" />
           </svg>
-          <div class="absolute inset-0 flex items-center justify-center"><span id="progress-percent" class="text-2xl font-bold text-emerald-600">0%</span>
+          <div class="absolute inset-0 flex items-center justify-center">
+           <span id="progress-percent" class="text-2xl font-bold text-emerald-600">0%</span>
           </div>
          </div>
-         <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3" id="quick-checklist"><!-- Quick checklist items will be populated by JS -->
+         <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3" id="quick-checklist">
+          <!-- Quick checklist items will be populated by JS -->
          </div>
         </div>
         <div id="achievement-badge" class="hidden mt-4 text-center">
-         <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-white px-4 py-2 rounded-full"><span>✨</span> <span class="font-semibold">MasyaAllah! Target Hari Ini Tercapai</span> <span>✨</span>
+         <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-white px-4 py-2 rounded-full">
+          <span>✨</span> <span class="font-semibold">MasyaAllah! Target Hari Ini Tercapai</span> <span>✨</span>
          </div>
         </div>
        </div><!-- Quick Actions -->
-       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"><button onclick="navigateTo('target')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">🕌</span> <p class="text-sm font-medium text-gray-700 mt-2">Catat Shalat</p></button> <button onclick="navigateTo('quran')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">������</span> <p class="text-sm font-medium text-gray-700 mt-2">Baca Qur'an</p></button> <button onclick="navigateTo('journal')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">📝</span> <p class="text-sm font-medium text-gray-700 mt-2">Tulis Journal</p></button> <button onclick="navigateTo('statistik')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">📊</span> <p class="text-sm font-medium text-gray-700 mt-2">Lihat Statistik</p></button>
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <button onclick="navigateTo('target')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">🕌</span> <p class="text-sm font-medium text-gray-700 mt-2">Catat Shalat</p></button> <button onclick="navigateTo('quran')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">������</span> <p class="text-sm font-medium text-gray-700 mt-2">Baca Qur'an</p></button> <button onclick="navigateTo('journal')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">📝</span> <p class="text-sm font-medium text-gray-700 mt-2">Tulis Journal</p></button> <button onclick="navigateTo('statistik')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">📊</span> <p class="text-sm font-medium text-gray-700 mt-2">Lihat Statistik</p></button>
        </div><!-- Recent Activity -->
        <div class="bg-white rounded-2xl p-6 card-shadow">
         <h2 class="text-lg font-semibold text-gray-800 mb-4">Aktivitas Terakhir</h2>
@@ -229,12 +256,14 @@
        </div>
       </div><!-- Target Ibadah Page -->
       <div id="page-target" class="page-content hidden fade-in">
-       <h1 class="text-2xl font-bold text-gray-800 mb-6">���� Target Ibadah Harian</h1>
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">������ Target Ibadah Harian</h1>
        <p class="text-gray-600 mb-6" id="target-date">Hari ini, Loading...</p>
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="ibadah-cards"><!-- Ibadah cards will be populated by JS -->
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="ibadah-cards">
+        <!-- Ibadah cards will be populated by JS -->
        </div>
        <div id="target-achievement" class="hidden mt-6">
-        <div class="bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl p-6 text-white text-center"><span class="text-4xl">🎉</span>
+        <div class="bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl p-6 text-white text-center">
+         <span class="text-4xl">🎉</span>
          <h3 class="text-xl font-bold mt-2">MasyaAllah! Target Tercapai!</h3>
          <p class="text-amber-100 mt-1">Semoga Allah menerima semua amal ibadah kamu</p>
         </div>
@@ -244,8 +273,10 @@
        <h1 class="text-2xl font-bold text-gray-800 mb-6">📔 Journal Ramadhan</h1>
        <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
         <h2 class="text-lg font-semibold text-gray-800 mb-4">Refleksi Hari Ini</h2>
-        <div class="mb-4"><label class="block text-sm font-medium text-gray-700 mb-2">Bagaimana perasaanmu hari ini?</label>
-         <div class="flex gap-2" id="emoji-picker"><button onclick="selectEmoji('😊')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😊</button> <button onclick="selectEmoji('😇')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😇</button> <button onclick="selectEmoji('🤲')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">🤲</button> <button onclick="selectEmoji('😌')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😌</button> <button onclick="selectEmoji('���')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">🥹</button> <button onclick="selectEmoji('😔')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😔</button>
+        <div class="mb-4">
+         <label class="block text-sm font-medium text-gray-700 mb-2">Bagaimana perasaanmu hari ini?</label>
+         <div class="flex gap-2" id="emoji-picker">
+          <button onclick="selectEmoji('😊')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😊</button> <button onclick="selectEmoji('😇')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😇</button> <button onclick="selectEmoji('🤲')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">🤲</button> <button onclick="selectEmoji('😌')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😌</button> <button onclick="selectEmoji('���')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">🥹</button> <button onclick="selectEmoji('😔')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😔</button>
          </div>
         </div><textarea id="journal-input" rows="6" placeholder="Tuliskan refleksi, doa, atau catatan ibadahmu hari ini..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none resize-none"></textarea> <button onclick="saveJournal()" id="save-journal-btn" class="mt-4 w-full md:w-auto px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all"> ��� Simpan Refleksi </button>
        </div>
@@ -259,7 +290,8 @@
       <div id="page-quran" class="page-content hidden fade-in">
        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
         <h1 class="text-2xl font-bold text-gray-800">📖 Al-Qur'an Digital</h1>
-        <div class="flex items-center gap-2 mt-4 md:mt-0"><span class="text-sm text-gray-600">Mode:</span> <button onclick="toggleQuranMode()" id="quran-mode-btn" class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all"> 🌙 Gelap </button>
+        <div class="flex items-center gap-2 mt-4 md:mt-0">
+         <span class="text-sm text-gray-600">Mode:</span> <button onclick="toggleQuranMode()" id="quran-mode-btn" class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all"> 🌙 Gelap </button>
         </div>
        </div>
        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -278,7 +310,8 @@
            <p>اهْدِنَا الصِّرَاطَ ا����ْمُسْتَقِيم��</p>
            <p>صِرَاطَ الَّ��ِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p>
           </div>
-          <div class="mt-6 flex justify-center"><button onclick="markQuranRead()" class="px-6 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:bg-emerald-600 transition-all"> �� Tandai Sudah Dibaca </button>
+          <div class="mt-6 flex justify-center">
+           <button onclick="markQuranRead()" class="px-6 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:bg-emerald-600 transition-all"> �� Tandai Sudah Dibaca </button>
           </div>
          </div>
         </div>
@@ -286,7 +319,8 @@
          <div class="bg-white rounded-2xl p-6 card-shadow">
           <h3 class="font-semibold text-gray-800 mb-4">📊 Progress Tilawah</h3>
           <div class="space-y-3">
-           <div class="flex justify-between text-sm"><span class="text-gray-600">Target Juz</span> <span class="font-medium text-emerald-600" id="target-juz">Juz 1</span>
+           <div class="flex justify-between text-sm">
+            <span class="text-gray-600">Target Juz</span> <span class="font-medium text-emerald-600" id="target-juz">Juz 1</span>
            </div>
            <div class="w-full bg-gray-200 rounded-full h-3">
             <div id="quran-progress-bar" class="bg-gradient-to-r from-emerald-500 to-emerald-600 h-3 rounded-full transition-all" style="width: 0%"></div>
@@ -308,9 +342,11 @@
       </div><!-- Edukasi Page -->
       <div id="page-edukasi" class="page-content hidden fade-in">
        <h1 class="text-2xl font-bold text-gray-800 mb-6">📚 Edukasi Ramadhan</h1>
-       <div class="flex flex-wrap gap-2 mb-6"><button onclick="filterEdukasi('semua')" class="edu-filter px-4 py-2 bg-emerald-500 text-white rounded-full text-sm font-medium" data-filter="semua">Semua</button> <button onclick="filterEdukasi('fiqih')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="fiqih">Fiqih Puasa</button> <button onclick="filterEdukasi('hikmah')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="hikmah">Hikmah</button> <button onclick="filterEdukasi('kesehatan')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="kesehatan">Kesehatan</button> <button onclick="filterEdukasi('motivasi')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="motivasi">Motivasi</button>
+       <div class="flex flex-wrap gap-2 mb-6">
+        <button onclick="filterEdukasi('semua')" class="edu-filter px-4 py-2 bg-emerald-500 text-white rounded-full text-sm font-medium" data-filter="semua">Semua</button> <button onclick="filterEdukasi('fiqih')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="fiqih">Fiqih Puasa</button> <button onclick="filterEdukasi('hikmah')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="hikmah">Hikmah</button> <button onclick="filterEdukasi('kesehatan')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="kesehatan">Kesehatan</button> <button onclick="filterEdukasi('motivasi')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="motivasi">Motivasi</button>
        </div>
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="edukasi-cards"><!-- Education cards will be populated by JS -->
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="edukasi-cards">
+        <!-- Education cards will be populated by JS -->
        </div>
       </div><!-- Statistik Page -->
       <div id="page-statistik" class="page-content hidden fade-in">
@@ -336,7 +372,7 @@
         </div>
         <div class="bg-white rounded-2xl p-6 card-shadow text-center">
          <div class="text-3xl mb-2">
-          📖
+          ��
          </div>
          <div class="text-2xl font-bold text-emerald-600" id="stat-quran">
           0
@@ -347,14 +383,16 @@
        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div class="bg-white rounded-2xl p-6 card-shadow">
          <h3 class="font-semibold text-gray-800 mb-4">📈 Progress Mingguan</h3>
-         <div class="space-y-3" id="weekly-chart"><!-- Weekly chart bars -->
+         <div class="space-y-3" id="weekly-chart">
+          <!-- Weekly chart bars -->
          </div>
         </div>
         <div class="bg-white rounded-2xl p-6 card-shadow">
          <h3 class="font-semibold text-gray-800 mb-4">��� Distribusi Ibadah</h3>
          <div class="flex items-center justify-center">
           <div class="relative w-40 h-40">
-           <svg viewbox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="20" /> <circle id="pie-shalat" cx="50" cy="50" r="40" fill="none" stroke="#0F9D58" stroke-width="20" stroke-dasharray="0 251" transform="rotate(-90 50 50)" /> <circle id="pie-tilawah" cx="50" cy="50" r="40" fill="none" stroke="#D4AF37" stroke-width="20" stroke-dasharray="0 251" transform="rotate(-90 50 50)" />
+           <svg viewbox="0 0 100 100" class="w-full h-full">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="20" /> <circle id="pie-shalat" cx="50" cy="50" r="40" fill="none" stroke="#0F9D58" stroke-width="20" stroke-dasharray="0 251" transform="rotate(-90 50 50)" /> <circle id="pie-tilawah" cx="50" cy="50" r="40" fill="none" stroke="#D4AF37" stroke-width="20" stroke-dasharray="0 251" transform="rotate(-90 50 50)" />
            </svg>
           </div>
          </div>
@@ -371,19 +409,23 @@
        <div class="bg-white rounded-2xl p-6 card-shadow">
         <h3 class="font-semibold text-gray-800 mb-4">🏆 Badge Pencapaian</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="badges-container">
-         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">🥇</span>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50">
+          <span class="text-3xl">🥇</span>
           <p class="text-sm font-medium mt-2">Konsisten Shalat</p>
           <p class="text-xs text-gray-500">7 hari berturut</p>
          </div>
-         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">📖</span>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50">
+          <span class="text-3xl">📖</span>
           <p class="text-sm font-medium mt-2">Pejuang Tilawah</p>
           <p class="text-xs text-gray-500">1 juz selesai</p>
          </div>
-         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">🌙</span>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50">
+          <span class="text-3xl">🌙</span>
           <p class="text-sm font-medium mt-2">Ahli Qiyamul Lail</p>
           <p class="text-xs text-gray-500">10x tarawih</p>
          </div>
-         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">💰</span>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50">
+          <span class="text-3xl">💰</span>
           <p class="text-sm font-medium mt-2">Dermawan</p>
           <p class="text-xs text-gray-500">7x sedekah</p>
          </div>
@@ -394,12 +436,14 @@
        <h1 class="text-2xl font-bold text-gray-800 mb-6">��� Profil Saya</h1>
        <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
         <div class="flex flex-col md:flex-row items-center gap-6">
-         <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center"><span class="text-4xl text-white" id="profil-avatar">👤</span>
+         <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
+          <span class="text-4xl text-white" id="profil-avatar">👤</span>
          </div>
          <div class="text-center md:text-left">
           <h2 class="text-xl font-bold text-gray-800" id="profil-nama">-</h2>
           <p class="text-gray-500" id="profil-kelas">-</p>
-          <div class="flex items-center justify-center md:justify-start gap-2 mt-2"><span class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-sm font-medium" id="profil-role">Siswa</span>
+          <div class="flex items-center justify-center md:justify-start gap-2 mt-2">
+           <span class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-sm font-medium" id="profil-role">Siswa</span>
           </div>
          </div>
         </div>
@@ -408,19 +452,24 @@
         <div class="bg-white rounded-2xl p-6 card-shadow">
          <h3 class="font-semibold text-gray-800 mb-4">📊 Ringkasan Ibadah</h3>
          <div class="space-y-4">
-          <div class="flex justify-between items-center"><span class="text-gray-600">Total Hari Aktif</span> <span class="font-semibold text-emerald-600" id="profil-days">0 hari</span>
+          <div class="flex justify-between items-center">
+           <span class="text-gray-600">Total Hari Aktif</span> <span class="font-semibold text-emerald-600" id="profil-days">0 hari</span>
           </div>
-          <div class="flex justify-between items-center"><span class="text-gray-600">Shalat Tercatat</span> <span class="font-semibold text-emerald-600" id="profil-shalat">0 waktu</span>
+          <div class="flex justify-between items-center">
+           <span class="text-gray-600">Shalat Tercatat</span> <span class="font-semibold text-emerald-600" id="profil-shalat">0 waktu</span>
           </div>
-          <div class="flex justify-between items-center"><span class="text-gray-600">Tilawah</span> <span class="font-semibold text-emerald-600" id="profil-tilawah">0 hari</span>
+          <div class="flex justify-between items-center">
+           <span class="text-gray-600">Tilawah</span> <span class="font-semibold text-emerald-600" id="profil-tilawah">0 hari</span>
           </div>
-          <div class="flex justify-between items-center"><span class="text-gray-600">Journal Ditulis</span> <span class="font-semibold text-emerald-600" id="profil-journal">0 entri</span>
+          <div class="flex justify-between items-center">
+           <span class="text-gray-600">Journal Ditulis</span> <span class="font-semibold text-emerald-600" id="profil-journal">0 entri</span>
           </div>
          </div>
         </div>
         <div class="bg-white rounded-2xl p-6 card-shadow">
          <h3 class="font-semibold text-gray-800 mb-4">🏆 Badge Terkumpul</h3>
-         <div class="flex flex-wrap gap-3" id="profil-badges"><span class="text-gray-500 text-sm">Belum ada badge</span>
+         <div class="flex flex-wrap gap-3" id="profil-badges">
+          <span class="text-gray-500 text-sm">Belum ada badge</span>
          </div>
         </div>
        </div>
@@ -468,7 +517,8 @@
        <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
          <h3 class="font-semibold text-gray-800">📋 Daftar Siswa &amp; Progress</h3>
-         <div class="flex gap-2 mt-4 md:mt-0"><select id="admin-filter-class" class="px-4 py-2 border border-gray-200 rounded-lg text-sm" onchange="filterAdminData()"> <option value="">Semua Kelas</option> <option value="7A">Kelas 7A</option> <option value="7B">Kelas 7B</option> <option value="8A">Kelas 8A</option> <option value="8B">Kelas 8B</option> <option value="9A">Kelas 9A</option> <option value="9B">Kelas 9B</option> <option value="Guru">Guru</option> </select> <button onclick="exportToPDF()" class="px-4 py-2 bg-emerald-500 text-white rounded-lg text-sm font-medium hover:bg-emerald-600 transition-all"> �� Export PDF </button>
+         <div class="flex gap-2 mt-4 md:mt-0">
+          <select id="admin-filter-class" class="px-4 py-2 border border-gray-200 rounded-lg text-sm" onchange="filterAdminData()"> <option value="">Semua Kelas</option> <option value="7A">Kelas 7A</option> <option value="7B">Kelas 7B</option> <option value="8A">Kelas 8A</option> <option value="8B">Kelas 8B</option> <option value="9A">Kelas 9A</option> <option value="9B">Kelas 9B</option> <option value="Guru">Guru</option> </select> <button onclick="exportToPDF()" class="px-4 py-2 bg-emerald-500 text-white rounded-lg text-sm font-medium hover:bg-emerald-600 transition-all"> �� Export PDF </button>
          </div>
         </div>
         <div class="overflow-x-auto">
@@ -1734,5 +1784,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d03921bd5855cd8',t:'MTc3MTQ4MTEwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>https://gemini.google.com/share/2343a1ec84c5
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d0394f383bb5cd8',t:'MTc3MTQ4MTIyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
