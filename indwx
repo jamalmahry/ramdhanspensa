@@ -1,1 +1,1738 @@
-https://gemini.google.com/share/2343a1ec84c5
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amaliah Ramadhan</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Amiri:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+    .arabic-text { font-family: 'Amiri', serif; }
+    
+    .islamic-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .gradient-header {
+      background: linear-gradient(135deg, #0F9D58 0%, #0d8a4d 50%, #0a7340 100%);
+    }
+    
+    .progress-ring {
+      transform: rotate(-90deg);
+    }
+    
+    .card-shadow {
+      box-shadow: 0 4px 20px rgba(15, 157, 88, 0.1);
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes confetti {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+    }
+    
+    .confetti-piece {
+      animation: confetti 1s ease-out forwards;
+    }
+    
+    .toggle-checkbox:checked {
+      background-color: #0F9D58;
+    }
+    
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #0F9D58;
+    }
+    
+    .sidebar-collapsed {
+      transform: translateX(-100%);
+    }
+    
+    @media (min-width: 768px) {
+      .sidebar-collapsed {
+        transform: translateX(0);
+      }
+    }
+    
+    .toast {
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .dark-mode {
+      background-color: #1a1a2e;
+      color: #eaeaea;
+    }
+    
+    .dark-mode .bg-white {
+      background-color: #16213e !important;
+    }
+    
+    .dark-mode .text-gray-800 {
+      color: #eaeaea !important;
+    }
+    
+    .dark-mode .text-gray-600 {
+      color: #b8b8b8 !important;
+    }
+    
+    .dark-mode .bg-gray-50, .dark-mode .bg-gray-100 {
+      background-color: #1a1a2e !important;
+    }
+    
+    .dark-mode .border-gray-200 {
+      border-color: #2a2a4e !important;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full bg-gray-50 overflow-auto">
+  <div id="app" class="h-full w-full"><!-- Login Page -->
+   <div id="login-page" class="min-h-full w-full gradient-header islamic-pattern flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md fade-in">
+     <div class="text-center mb-8">
+      <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center"><span class="text-4xl">🌙</span>
+      </div>
+      <h1 class="text-5xl font-bold text-gray-800">Amaliah Ramadhan</h1>
+      <p class="text-emerald-600 font-semibold text-sm mt-1">UPT SMP Negeri 1 Pinrang</p>
+      <p class="text-gray-500 mt-1">Tracker &amp; Journal Ibadah</p>
+     </div>
+     <div class="space-y-4">
+      <div id="login-tabs" class="flex bg-gray-100 rounded-xl p-1 mb-6"><button onclick="switchLoginTab('siswa')" id="tab-siswa" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all bg-white shadow text-emerald-600">Murid</button> <button onclick="switchLoginTab('admin')" id="tab-admin" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all text-gray-500">Admin</button>
+      </div><!-- Siswa/Guru Login -->
+      <div id="form-siswa" class="space-y-4">
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label> <input type="text" id="input-nama" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       </div>
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label> <input type="text" id="input-kelas" placeholder="Contoh: 7.1, 8.2, 9.3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       </div><button onclick="loginSiswa()" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg"> Masuk </button>
+      </div><!-- Admin Login -->
+      <div id="form-admin" class="space-y-4 hidden">
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">Username</label> <input type="text" id="admin-username" placeholder="Username admin" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       </div>
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">Password</label> <input type="password" id="admin-password" placeholder="Password" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+       </div><button onclick="loginAdmin()" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg"> Masuk sebagai Admin </button>
+      </div>
+      <div id="login-error" class="hidden text-red-500 text-sm text-center mt-2"></div>
+      <div class="mt-6 text-center text-sm text-gray-600">
+       Belum punya akun? <button onclick="switchToRegistration()" class="text-emerald-600 font-semibold hover:text-emerald-700">Daftar Sekarang</button>
+      </div>
+     </div>
+    </div>
+   </div><!-- Registration Page -->
+   <div id="registration-page" class="hidden min-h-full w-full gradient-header islamic-pattern flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-2xl fade-in">
+     <div class="flex items-center gap-3 mb-6">
+      <button onclick="switchToLogin()" class="text-gray-600 hover:text-gray-800">←</button>
+      <div>
+       <h1 class="text-3xl font-bold text-gray-800">Pembuatan Akun</h1>
+       <p class="text-gray-500 text-sm">Isi form di bawah untuk membuat akun baru</p>
+      </div>
+     </div>
+     <form id="registration-form-login" class="space-y-4">
+      <div class="space-y-4">
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label> <input type="text" id="reg-nama" required placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       </div>
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">NIS (Nomor Induk Siswa) *</label> <input type="text" id="reg-nis" required placeholder="Contoh: 12345" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       </div>
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">Kelas *</label> <input type="text" id="reg-kelas" required placeholder="Contoh: 7.1, 8.2, 9.3" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       </div>
+       <div><label class="block text-sm font-medium text-gray-700 mb-2">No. WhatsApp *</label> <input type="tel" id="reg-wa" required placeholder="08xx xxxx xxxx" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-sm">
+       </div>
+      </div>
+      <div id="reg-error" class="hidden text-red-500 text-sm bg-red-50 p-3 rounded-lg"></div>
+      <div class="flex gap-3 mt-6"><button type="button" onclick="switchToLogin()" class="flex-1 py-3 border border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">Batal</button> <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg">Buat Akun</button>
+      </div>
+     </form>
+    </div>
+   </div><!-- Main App -->
+   <div id="main-app" class="hidden h-full w-full"><!-- Mobile Header -->
+    <header class="gradient-header islamic-pattern sticky top-0 z-50 shadow-lg">
+     <div class="flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3"><button onclick="toggleSidebar()" class="md:hidden text-white p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg></button>
+       <div class="flex items-center gap-2"><span class="text-2xl">🌙</span> <span class="text-white font-bold text-lg hidden sm:block">Amaliah Ramadhan</span>
+       </div>
+      </div>
+      <div class="flex items-center gap-2"><button onclick="toggleDarkMode()" class="text-white p-2 rounded-lg hover:bg-white/10 transition-all"> <span id="dark-mode-icon">🌙</span> </button> <button onclick="logout()" class="text-white p-2 rounded-lg hover:bg-white/10 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+        </svg></button>
+      </div>
+     </div>
+    </header>
+    <div class="flex h-full"><!-- Sidebar -->
+     <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 bg-white shadow-xl transform transition-transform duration-300 sidebar-collapsed md:transform-none mt-14 md:mt-0">
+      <nav class="p-4 space-y-2"><button onclick="navigateTo('dashboard')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-emerald-600 bg-emerald-50" data-page="dashboard"> <span class="text-xl">🏠</span> <span class="font-medium">Dashboard</span> </button> <button onclick="navigateTo('target')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="target"> <span class="text-xl">✅</span> <span class="font-medium">Target Ibadah</span> </button> <button onclick="navigateTo('journal')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="journal"> <span class="text-xl">📔</span> <span class="font-medium">Journal</span> </button> <button onclick="navigateTo('quran')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="quran"> <span class="text-xl">��</span> <span class="font-medium">Al-Qur'an</span> </button> <button onclick="navigateTo('edukasi')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="edukasi"> <span class="text-xl">📚</span> <span class="font-medium">Edukasi</span> </button> <button onclick="navigateTo('statistik')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="statistik"> <span class="text-xl">📊</span> <span class="font-medium">Statistik</span> </button> <button onclick="navigateTo('profil')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-emerald-50 text-gray-600" data-page="profil"> <span class="text-xl">����</span> <span class="font-medium">Profil</span> </button>
+       <div id="admin-nav" class="hidden">
+        <div class="border-t border-gray-200 my-4"></div><button onclick="navigateTo('admin')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-amber-50 text-gray-600" data-page="admin"> <span class="text-xl">⚙️</span> <span class="font-medium">Panel Admin</span> </button> <button onclick="navigateTo('pendaftaran')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all hover:bg-amber-50 text-gray-600" data-page="pendaftaran"> <span class="text-xl">📝</span> <span class="font-medium">Pendaftaran Murid</span> </button>
+       </div>
+      </nav>
+     </aside><!-- Overlay -->
+     <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleSidebar()"></div><!-- Main Content -->
+     <main class="flex-1 overflow-y-auto p-4 md:p-6"><!-- Dashboard Page -->
+      <div id="page-dashboard" class="page-content fade-in"><!-- Hero Section -->
+       <div class="gradient-header islamic-pattern rounded-2xl p-6 mb-6 text-white">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+         <div>
+          <p class="text-emerald-100 text-sm" id="greeting-text">Assalamu'alaikum</p>
+          <h1 class="text-2xl md:text-3xl font-bold mt-1" id="user-greeting">Selamat Datang! 👋</h1>
+          <p class="text-emerald-100 mt-2" id="date-display">Loading...</p>
+         </div>
+         <div class="mt-4 md:mt-0">
+          <div class="bg-white/20 backdrop-blur rounded-xl p-4 max-w-sm">
+           <p class="text-xs text-emerald-100 mb-1">Hadits Hari Ini</p>
+           <p class="text-sm italic" id="hadits-display">"Barangsiapa berpuasa Ramadhan karena iman dan mengharap pahala, maka diampuni dosanya yang telah lalu."</p>
+           <p class="text-xs text-emerald-200 mt-2">- HR. Bukhari &amp; Muslim</p>
+          </div>
+         </div>
+        </div>
+       </div><!-- Progress Card -->
+       <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Progress Ibadah Hari Ini</h2>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+         <div class="relative">
+          <svg class="w-32 h-32 progress-ring"><circle cx="64" cy="64" r="56" stroke="#e5e7eb" stroke-width="8" fill="none" /> <circle id="progress-circle" cx="64" cy="64" r="56" stroke="#0F9D58" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="352" stroke-dashoffset="352" />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center"><span id="progress-percent" class="text-2xl font-bold text-emerald-600">0%</span>
+          </div>
+         </div>
+         <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3" id="quick-checklist"><!-- Quick checklist items will be populated by JS -->
+         </div>
+        </div>
+        <div id="achievement-badge" class="hidden mt-4 text-center">
+         <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-white px-4 py-2 rounded-full"><span>✨</span> <span class="font-semibold">MasyaAllah! Target Hari Ini Tercapai</span> <span>✨</span>
+         </div>
+        </div>
+       </div><!-- Quick Actions -->
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"><button onclick="navigateTo('target')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">🕌</span> <p class="text-sm font-medium text-gray-700 mt-2">Catat Shalat</p></button> <button onclick="navigateTo('quran')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">������</span> <p class="text-sm font-medium text-gray-700 mt-2">Baca Qur'an</p></button> <button onclick="navigateTo('journal')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">📝</span> <p class="text-sm font-medium text-gray-700 mt-2">Tulis Journal</p></button> <button onclick="navigateTo('statistik')" class="bg-white rounded-xl p-4 card-shadow hover:shadow-lg transition-all text-center"> <span class="text-3xl">📊</span> <p class="text-sm font-medium text-gray-700 mt-2">Lihat Statistik</p></button>
+       </div><!-- Recent Activity -->
+       <div class="bg-white rounded-2xl p-6 card-shadow">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Aktivitas Terakhir</h2>
+        <div id="recent-activity" class="space-y-3">
+         <p class="text-gray-500 text-sm">Belum ada aktivitas tercatat</p>
+        </div>
+       </div>
+      </div><!-- Target Ibadah Page -->
+      <div id="page-target" class="page-content hidden fade-in">
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">���� Target Ibadah Harian</h1>
+       <p class="text-gray-600 mb-6" id="target-date">Hari ini, Loading...</p>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="ibadah-cards"><!-- Ibadah cards will be populated by JS -->
+       </div>
+       <div id="target-achievement" class="hidden mt-6">
+        <div class="bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl p-6 text-white text-center"><span class="text-4xl">🎉</span>
+         <h3 class="text-xl font-bold mt-2">MasyaAllah! Target Tercapai!</h3>
+         <p class="text-amber-100 mt-1">Semoga Allah menerima semua amal ibadah kamu</p>
+        </div>
+       </div>
+      </div><!-- Journal Page -->
+      <div id="page-journal" class="page-content hidden fade-in">
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">📔 Journal Ramadhan</h1>
+       <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Refleksi Hari Ini</h2>
+        <div class="mb-4"><label class="block text-sm font-medium text-gray-700 mb-2">Bagaimana perasaanmu hari ini?</label>
+         <div class="flex gap-2" id="emoji-picker"><button onclick="selectEmoji('😊')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😊</button> <button onclick="selectEmoji('😇')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😇</button> <button onclick="selectEmoji('🤲')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">🤲</button> <button onclick="selectEmoji('😌')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😌</button> <button onclick="selectEmoji('���')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">🥹</button> <button onclick="selectEmoji('😔')" class="emoji-btn text-2xl p-2 rounded-lg hover:bg-gray-100 transition-all">😔</button>
+         </div>
+        </div><textarea id="journal-input" rows="6" placeholder="Tuliskan refleksi, doa, atau catatan ibadahmu hari ini..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none resize-none"></textarea> <button onclick="saveJournal()" id="save-journal-btn" class="mt-4 w-full md:w-auto px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all"> ��� Simpan Refleksi </button>
+       </div>
+       <div class="bg-white rounded-2xl p-6 card-shadow">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">���� Refleksi Sebelumnya</h2>
+        <div id="journal-history" class="space-y-4">
+         <p class="text-gray-500 text-sm">Belum ada refleksi tersimpan</p>
+        </div>
+       </div>
+      </div><!-- Al-Qur'an Page -->
+      <div id="page-quran" class="page-content hidden fade-in">
+       <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">📖 Al-Qur'an Digital</h1>
+        <div class="flex items-center gap-2 mt-4 md:mt-0"><span class="text-sm text-gray-600">Mode:</span> <button onclick="toggleQuranMode()" id="quran-mode-btn" class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all"> 🌙 Gelap </button>
+        </div>
+       </div>
+       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+         <div id="quran-container" class="bg-white rounded-2xl p-6 card-shadow">
+          <div class="text-center mb-6">
+           <h2 class="text-xl font-bold text-emerald-600">سُورَةُ ال��فَاتِحَة</h2>
+           <p class="text-gray-500 text-sm">Al-Fatihah - Pembukaan</p>
+          </div>
+          <div class="arabic-text text-right text-2xl leading-loose space-y-4" dir="rtl">
+           <p class="text-emerald-700">بِسْمِ اللَّهِ الرَّحْمَٰن����� الرَّحِيمِ</p>
+           <p>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
+           <p>��لرَّحْمَٰنِ الرَّحِي����ِ</p>
+           <p>مَالِكِ يَوْمِ ال��ِّينِ</p>
+           <p>إِيَّاكَ نَعْب����د�� وَإِيَّاكَ نَسْتَعِينُ</p>
+           <p>اهْدِنَا الصِّرَاطَ ا����ْمُسْتَقِيم��</p>
+           <p>صِرَاطَ الَّ��ِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p>
+          </div>
+          <div class="mt-6 flex justify-center"><button onclick="markQuranRead()" class="px-6 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:bg-emerald-600 transition-all"> �� Tandai Sudah Dibaca </button>
+          </div>
+         </div>
+        </div>
+        <div class="space-y-4">
+         <div class="bg-white rounded-2xl p-6 card-shadow">
+          <h3 class="font-semibold text-gray-800 mb-4">📊 Progress Tilawah</h3>
+          <div class="space-y-3">
+           <div class="flex justify-between text-sm"><span class="text-gray-600">Target Juz</span> <span class="font-medium text-emerald-600" id="target-juz">Juz 1</span>
+           </div>
+           <div class="w-full bg-gray-200 rounded-full h-3">
+            <div id="quran-progress-bar" class="bg-gradient-to-r from-emerald-500 to-emerald-600 h-3 rounded-full transition-all" style="width: 0%"></div>
+           </div>
+           <p class="text-sm text-gray-500" id="quran-progress-text">0 halaman dibaca</p>
+          </div>
+         </div>
+         <div class="bg-white rounded-2xl p-6 card-shadow">
+          <h3 class="font-semibold text-gray-800 mb-4">🎯 Target Khatam</h3>
+          <div class="text-center">
+           <div class="text-3xl font-bold text-emerald-600" id="khatam-progress">
+            0%
+           </div>
+           <p class="text-sm text-gray-500 mt-1">menuju khatam 30 juz</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Edukasi Page -->
+      <div id="page-edukasi" class="page-content hidden fade-in">
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">📚 Edukasi Ramadhan</h1>
+       <div class="flex flex-wrap gap-2 mb-6"><button onclick="filterEdukasi('semua')" class="edu-filter px-4 py-2 bg-emerald-500 text-white rounded-full text-sm font-medium" data-filter="semua">Semua</button> <button onclick="filterEdukasi('fiqih')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="fiqih">Fiqih Puasa</button> <button onclick="filterEdukasi('hikmah')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="hikmah">Hikmah</button> <button onclick="filterEdukasi('kesehatan')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="kesehatan">Kesehatan</button> <button onclick="filterEdukasi('motivasi')" class="edu-filter px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="motivasi">Motivasi</button>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="edukasi-cards"><!-- Education cards will be populated by JS -->
+       </div>
+      </div><!-- Statistik Page -->
+      <div id="page-statistik" class="page-content hidden fade-in">
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">📊 Statistik &amp; Laporan</h1>
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          ����
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="stat-streak">
+          0
+         </div>
+         <p class="text-sm text-gray-500">Hari Beruntun</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          ✅
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="stat-completed">
+          0
+         </div>
+         <p class="text-sm text-gray-500">Total Ibadah</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          📖
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="stat-quran">
+          0
+         </div>
+         <p class="text-sm text-gray-500">Halaman Qur'an</p>
+        </div>
+       </div>
+       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white rounded-2xl p-6 card-shadow">
+         <h3 class="font-semibold text-gray-800 mb-4">📈 Progress Mingguan</h3>
+         <div class="space-y-3" id="weekly-chart"><!-- Weekly chart bars -->
+         </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow">
+         <h3 class="font-semibold text-gray-800 mb-4">��� Distribusi Ibadah</h3>
+         <div class="flex items-center justify-center">
+          <div class="relative w-40 h-40">
+           <svg viewbox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="20" /> <circle id="pie-shalat" cx="50" cy="50" r="40" fill="none" stroke="#0F9D58" stroke-width="20" stroke-dasharray="0 251" transform="rotate(-90 50 50)" /> <circle id="pie-tilawah" cx="50" cy="50" r="40" fill="none" stroke="#D4AF37" stroke-width="20" stroke-dasharray="0 251" transform="rotate(-90 50 50)" />
+           </svg>
+          </div>
+         </div>
+         <div class="flex justify-center gap-4 mt-4 text-sm">
+          <div class="flex items-center gap-2">
+           <div class="w-3 h-3 rounded-full bg-emerald-500"></div><span>Shalat</span>
+          </div>
+          <div class="flex items-center gap-2">
+           <div class="w-3 h-3 rounded-full bg-amber-500"></div><span>Tilawah</span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl p-6 card-shadow">
+        <h3 class="font-semibold text-gray-800 mb-4">🏆 Badge Pencapaian</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="badges-container">
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">🥇</span>
+          <p class="text-sm font-medium mt-2">Konsisten Shalat</p>
+          <p class="text-xs text-gray-500">7 hari berturut</p>
+         </div>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">📖</span>
+          <p class="text-sm font-medium mt-2">Pejuang Tilawah</p>
+          <p class="text-xs text-gray-500">1 juz selesai</p>
+         </div>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">🌙</span>
+          <p class="text-sm font-medium mt-2">Ahli Qiyamul Lail</p>
+          <p class="text-xs text-gray-500">10x tarawih</p>
+         </div>
+         <div class="text-center p-4 bg-gray-50 rounded-xl opacity-50"><span class="text-3xl">💰</span>
+          <p class="text-sm font-medium mt-2">Dermawan</p>
+          <p class="text-xs text-gray-500">7x sedekah</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Profil Page -->
+      <div id="page-profil" class="page-content hidden fade-in">
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">��� Profil Saya</h1>
+       <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+         <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center"><span class="text-4xl text-white" id="profil-avatar">👤</span>
+         </div>
+         <div class="text-center md:text-left">
+          <h2 class="text-xl font-bold text-gray-800" id="profil-nama">-</h2>
+          <p class="text-gray-500" id="profil-kelas">-</p>
+          <div class="flex items-center justify-center md:justify-start gap-2 mt-2"><span class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-sm font-medium" id="profil-role">Siswa</span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6 card-shadow">
+         <h3 class="font-semibold text-gray-800 mb-4">📊 Ringkasan Ibadah</h3>
+         <div class="space-y-4">
+          <div class="flex justify-between items-center"><span class="text-gray-600">Total Hari Aktif</span> <span class="font-semibold text-emerald-600" id="profil-days">0 hari</span>
+          </div>
+          <div class="flex justify-between items-center"><span class="text-gray-600">Shalat Tercatat</span> <span class="font-semibold text-emerald-600" id="profil-shalat">0 waktu</span>
+          </div>
+          <div class="flex justify-between items-center"><span class="text-gray-600">Tilawah</span> <span class="font-semibold text-emerald-600" id="profil-tilawah">0 hari</span>
+          </div>
+          <div class="flex justify-between items-center"><span class="text-gray-600">Journal Ditulis</span> <span class="font-semibold text-emerald-600" id="profil-journal">0 entri</span>
+          </div>
+         </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow">
+         <h3 class="font-semibold text-gray-800 mb-4">🏆 Badge Terkumpul</h3>
+         <div class="flex flex-wrap gap-3" id="profil-badges"><span class="text-gray-500 text-sm">Belum ada badge</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Admin Page -->
+      <div id="page-admin" class="page-content hidden fade-in">
+       <h1 class="text-2xl font-bold text-gray-800 mb-6">⚙️ Panel Admin</h1>
+       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          👥
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="admin-users">
+          0
+         </div>
+         <p class="text-sm text-gray-500">Total Pengguna</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          📝
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="admin-entries">
+          0
+         </div>
+         <p class="text-sm text-gray-500">Total Entri</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          ✅
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="admin-completed">
+          0
+         </div>
+         <p class="text-sm text-gray-500">Target Tercapai</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 card-shadow text-center">
+         <div class="text-3xl mb-2">
+          📊
+         </div>
+         <div class="text-2xl font-bold text-emerald-600" id="admin-avg">
+          0%
+         </div>
+         <p class="text-sm text-gray-500">Rata-rata Progress</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl p-6 card-shadow mb-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+         <h3 class="font-semibold text-gray-800">📋 Daftar Siswa &amp; Progress</h3>
+         <div class="flex gap-2 mt-4 md:mt-0"><select id="admin-filter-class" class="px-4 py-2 border border-gray-200 rounded-lg text-sm" onchange="filterAdminData()"> <option value="">Semua Kelas</option> <option value="7A">Kelas 7A</option> <option value="7B">Kelas 7B</option> <option value="8A">Kelas 8A</option> <option value="8B">Kelas 8B</option> <option value="9A">Kelas 9A</option> <option value="9B">Kelas 9B</option> <option value="Guru">Guru</option> </select> <button onclick="exportToPDF()" class="px-4 py-2 bg-emerald-500 text-white rounded-lg text-sm font-medium hover:bg-emerald-600 transition-all"> �� Export PDF </button>
+         </div>
+        </div>
+        <div class="overflow-x-auto">
+         <table class="w-full text-sm">
+          <thead>
+           <tr class="border-b border-gray-200">
+            <th class="text-left py-3 px-4 font-semibold text-gray-600">Nama</th>
+            <th class="text-left py-3 px-4 font-semibold text-gray-600">Kelas</th>
+            <th class="text-center py-3 px-4 font-semibold text-gray-600">Progress</th>
+            <th class="text-center py-3 px-4 font-semibold text-gray-600">Shalat</th>
+            <th class="text-center py-3 px-4 font-semibold text-gray-600">Tilawah</th>
+            <th class="text-center py-3 px-4 font-semibold text-gray-600">Poin</th>
+           </tr>
+          </thead>
+          <tbody id="admin-table-body">
+           <tr>
+            <td colspan="6" class="text-center py-8 text-gray-500">Belum ada data pengguna</td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl p-6 card-shadow">
+        <h3 class="font-semibold text-gray-800 mb-4">🏆 Ranking Kelas</h3>
+        <div class="space-y-3" id="class-ranking">
+         <p class="text-gray-500 text-sm">Belum ada data ranking</p>
+        </div>
+       </div>
+      </div>
+     </main>
+    </div>
+   </div><!-- Toast Container -->
+   <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2"></div><!-- Confetti Container -->
+   <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
+  </div>
+  <script>
+    // ==================== CONFIG & STATE ====================
+    const defaultConfig = {
+      app_title: 'Amaliah Ramadhan',
+      welcome_text: "Assalamu'alaikum",
+      primary_color: '#0F9D58',
+      secondary_color: '#D4AF37',
+      text_color: '#1f2937',
+      background_color: '#f9fafb',
+      surface_color: '#ffffff'
+    };
+    
+    let currentUser = null;
+    let allData = [];
+    let currentPage = 'dashboard';
+    let selectedEmoji = '😊';
+    let isDarkMode = false;
+    let isQuranDarkMode = false;
+    let recordCount = 0;
+    
+    const ibadahList = [
+      { id: 'shalat_subuh', name: 'Shalat Subuh', icon: '🌅' },
+      { id: 'shalat_zuhur', name: 'Shalat Zuhur/Jumat', icon: '☀��' },
+      { id: 'shalat_asar', name: 'Shalat Asar', icon: '🌤️' },
+      { id: 'shalat_maghrib', name: 'Shalat Maghrib', icon: '🌅' },
+      { id: 'shalat_isya', name: 'Shalat Isya', icon: '🌙' },
+      { id: 'tilawah', name: 'Tilawah Al-Quran', icon: '��' },
+      { id: 'sedekah', name: 'Sedekah', icon: '💰' },
+      { id: 'tarawih', name: 'Shalat Tarawih', icon: '🕌' }
+    ];
+    
+    const edukasiContent = [
+      { id: 1, category: 'fiqih', title: 'Rukun Puasa Ramadhan', desc: 'Memahami syarat sah dan rukun puasa yang wajib diketahui', icon: '📜' },
+      { id: 2, category: 'fiqih', title: 'Hal yang Membatalkan Puasa', desc: 'Ketahui apa saja yang dapat membatalkan ibadah puasa', icon: '⚠️' },
+      { id: 3, category: 'hikmah', title: 'Keutamaan Bulan Ramadhan', desc: 'Pahala berlipat dan kemuliaan bulan suci Ramadhan', icon: '✨' },
+      { id: 4, category: 'hikmah', title: 'Lailatul Qadar', desc: 'Malam yang lebih baik dari seribu bulan', icon: '🌙' },
+      { id: 5, category: 'kesehatan', title: 'Tips Sahur Sehat', desc: 'Menu dan waktu sahur yang optimal untuk puasa', icon: '�����' },
+      { id: 6, category: 'kesehatan', title: 'Menjaga Stamina Saat Puasa', desc: 'Tetap produktif dan berenergi selama berpuasa', icon: '💪' },
+      { id: 7, category: 'motivasi', title: 'Istiqomah dalam Ibadah', desc: 'Konsisten adalah kunci keberhasilan Ramadhan', icon: '🎯' },
+      { id: 8, category: 'motivasi', title: 'Memaafkan dan Meminta Maaf', desc: 'Ramadhan momentum untuk memperbaiki hubungan', icon: '🤝' }
+    ];
+    
+    const haditsHarian = [
+      { text: "Barangsiapa berpuasa Ramadhan karena iman dan mengharap pahala, maka diampuni dosanya yang telah lalu.", source: "HR. Bukhari & Muslim" },
+      { text: "Puasa adalah perisai, maka janganlah berkata kotor dan jangan pula berbuat bodoh.", source: "HR. Bukhari" },
+      { text: "Setiap amal anak Adam dilipatgandakan, satu kebaikan menjadi sepuluh hingga tujuh ratus kali lipat.", source: "HR. Muslim" },
+      { text: "Berpuasalah, niscaya kalian akan sehat.", source: "HR. Ibnu Sunni & Abu Nu'aim" },
+      { text: "Orang yang berpuasa memiliki dua kegembiraan: ketika berbuka dan ketika bertemu Tuhannya.", source: "HR. Bukhari & Muslim" }
+    ];
+    
+    // ==================== DATA SDK HANDLER ====================
+    const dataHandler = {
+      onDataChanged(data) {
+        allData = data;
+        recordCount = data.length;
+        updateUI();
+      }
+    };
+    
+    // ==================== ELEMENT SDK ====================
+    async function initElementSDK() {
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            document.getElementById('greeting-text').textContent = config.welcome_text || defaultConfig.welcome_text;
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              {
+                get: () => config.primary_color || defaultConfig.primary_color,
+                set: (value) => window.elementSdk.setConfig({ primary_color: value })
+              },
+              {
+                get: () => config.secondary_color || defaultConfig.secondary_color,
+                set: (value) => window.elementSdk.setConfig({ secondary_color: value })
+              }
+            ],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ['app_title', config.app_title || defaultConfig.app_title],
+            ['welcome_text', config.welcome_text || defaultConfig.welcome_text]
+          ])
+        });
+      }
+    }
+    
+    // ==================== INITIALIZATION ====================
+    async function init() {
+      await initElementSDK();
+      
+      if (window.dataSdk) {
+        const result = await window.dataSdk.init(dataHandler);
+        if (!result.isOk) {
+          console.error('Failed to initialize Data SDK');
+        }
+      }
+      
+      updateDateDisplay();
+      renderEdukasi();
+      renderIbadahCards();
+      renderWeeklyChart();
+    }
+    
+    init();
+    
+    // ==================== AUTH FUNCTIONS ====================
+    function switchLoginTab(tab) {
+      const tabSiswa = document.getElementById('tab-siswa');
+      const tabAdmin = document.getElementById('tab-admin');
+      const formSiswa = document.getElementById('form-siswa');
+      const formAdmin = document.getElementById('form-admin');
+      
+      if (tab === 'siswa') {
+        tabSiswa.classList.add('bg-white', 'shadow', 'text-emerald-600');
+        tabSiswa.classList.remove('text-gray-500');
+        tabAdmin.classList.remove('bg-white', 'shadow', 'text-emerald-600');
+        tabAdmin.classList.add('text-gray-500');
+        formSiswa.classList.remove('hidden');
+        formAdmin.classList.add('hidden');
+      } else {
+        tabAdmin.classList.add('bg-white', 'shadow', 'text-emerald-600');
+        tabAdmin.classList.remove('text-gray-500');
+        tabSiswa.classList.remove('bg-white', 'shadow', 'text-emerald-600');
+        tabSiswa.classList.add('text-gray-500');
+        formAdmin.classList.remove('hidden');
+        formSiswa.classList.add('hidden');
+      }
+      hideLoginError();
+    }
+    
+    function showLoginError(message) {
+      const errorEl = document.getElementById('login-error');
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+    }
+    
+    function hideLoginError() {
+      document.getElementById('login-error').classList.add('hidden');
+    }
+    
+    async function loginSiswa() {
+      const nama = document.getElementById('input-nama').value.trim();
+      const kelas = document.getElementById('input-kelas').value;
+      
+      if (!nama) {
+        showLoginError('Silakan masukkan nama lengkap');
+        return;
+      }
+      if (!kelas) {
+        showLoginError('Silakan pilih kelas/jabatan');
+        return;
+      }
+      
+      currentUser = {
+        id: nama.toLowerCase().replace(/\s+/g, '_') + '_' + kelas,
+        name: nama,
+        class: kelas,
+        role: kelas === 'Guru' ? 'guru' : 'siswa'
+      };
+      
+      showMainApp();
+    }
+    
+    function loginAdmin() {
+      const username = document.getElementById('admin-username').value.trim();
+      const password = document.getElementById('admin-password').value;
+      
+      if (username === 'admin' && password === 'dataspensa01') {
+        currentUser = {
+          id: 'admin',
+          name: 'Administrator',
+          class: 'Admin',
+          role: 'admin'
+        };
+        showMainApp();
+        document.getElementById('admin-nav').classList.remove('hidden');
+      } else {
+        showLoginError('Username atau password salah');
+      }
+    }
+    
+    function switchToRegistration() {
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('registration-page').classList.remove('hidden');
+    }
+    
+    function switchToLogin() {
+      document.getElementById('registration-page').classList.add('hidden');
+      document.getElementById('login-page').classList.remove('hidden');
+      document.getElementById('registration-form-login').reset();
+      document.getElementById('reg-error').classList.add('hidden');
+    }
+    
+    async function handleRegistrationSubmit(e) {
+      e.preventDefault();
+      
+      const nama = document.getElementById('reg-nama').value.trim();
+      const nis = document.getElementById('reg-nis').value.trim();
+      const kelas = document.getElementById('reg-kelas').value;
+      const wa = document.getElementById('reg-wa').value.trim();
+      
+      const errorDiv = document.getElementById('reg-error');
+      
+      if (!nama || !nis || !kelas || !wa) {
+        errorDiv.textContent = 'Semua field harus diisi!';
+        errorDiv.classList.remove('hidden');
+        return;
+      }
+      
+      if (recordCount >= 999) {
+        errorDiv.textContent = 'Batas akun sudah tercapai!';
+        errorDiv.classList.remove('hidden');
+        return;
+      }
+      
+      errorDiv.classList.add('hidden');
+      
+      const accountData = {
+        type: 'akun',
+        nama_lengkap: nama,
+        nis: nis,
+        kelas: kelas,
+        no_wa: wa,
+        tanggal_buat: new Date().toISOString().split('T')[0],
+        status: 'Aktif',
+        created_at: new Date().toISOString()
+      };
+      
+      const result = await window.dataSdk.create(accountData);
+      
+      if (result.isOk) {
+        showToast('Akun berhasil dibuat! Silakan login.', 'success');
+        setTimeout(() => {
+          switchToLogin();
+          document.getElementById('input-nama').focus();
+        }, 2000);
+      } else {
+        errorDiv.textContent = 'Gagal membuat akun, coba lagi!';
+        errorDiv.classList.remove('hidden');
+      }
+    }
+    
+    // Attach form submit handler
+    document.addEventListener('DOMContentLoaded', () => {
+      const regForm = document.getElementById('registration-form-login');
+      if (regForm) {
+        regForm.addEventListener('submit', handleRegistrationSubmit);
+      }
+    });
+    
+    function showMainApp() {
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('main-app').classList.remove('hidden');
+      document.getElementById('user-greeting').textContent = `${currentUser.name} 👋`;
+      document.getElementById('profil-nama').textContent = currentUser.name;
+      document.getElementById('profil-kelas').textContent = currentUser.class;
+      document.getElementById('profil-role').textContent = currentUser.role === 'admin' ? 'Admin' : currentUser.role === 'guru' ? 'Guru' : 'Siswa';
+      
+      if (currentUser.role === 'admin') {
+        document.getElementById('admin-nav').classList.remove('hidden');
+      }
+      
+      updateUI();
+      showToast('Selamat datang, ' + currentUser.name + '!', 'success');
+    }
+    
+    function logout() {
+      currentUser = null;
+      document.getElementById('main-app').classList.add('hidden');
+      document.getElementById('login-page').classList.remove('hidden');
+      document.getElementById('input-nama').value = '';
+      document.getElementById('input-kelas').value = '';
+      document.getElementById('admin-username').value = '';
+      document.getElementById('admin-password').value = '';
+      document.getElementById('admin-nav').classList.add('hidden');
+      switchLoginTab('siswa');
+    }
+    
+    // ==================== NAVIGATION ====================
+    function navigateTo(page) {
+      currentPage = page;
+      
+      document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('page-' + page).classList.remove('hidden');
+      
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-50', 'text-emerald-600');
+        btn.classList.add('text-gray-600');
+      });
+      
+      const activeBtn = document.querySelector(`.nav-btn[data-page="${page}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-emerald-50', 'text-emerald-600');
+        activeBtn.classList.remove('text-gray-600');
+      }
+      
+      if (window.innerWidth < 768) {
+        toggleSidebar();
+      }
+      
+      if (page === 'admin') {
+        updateAdminDashboard();
+      }
+    }
+    
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      
+      sidebar.classList.toggle('sidebar-collapsed');
+      overlay.classList.toggle('hidden');
+    }
+    
+    // ==================== UI UPDATES ====================
+    function updateUI() {
+      if (!currentUser) return;
+      
+      updateProgressMeter();
+      updateRecentActivity();
+      updateJournalHistory();
+      updateStatistics();
+      updateProfil();
+      updateQuickChecklist();
+      
+      if (currentUser.role === 'admin') {
+        updateAdminDashboard();
+      }
+    }
+    
+    function updateDateDisplay() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('id-ID', options);
+      
+      // Simple Hijri approximation
+      const hijriDay = ((now.getDate() + 10) % 30) + 1;
+      const hijriStr = `${hijriDay} Ramadhan 1446 H`;
+      
+      document.getElementById('date-display').textContent = `${hijriStr} • ${dateStr}`;
+      document.getElementById('target-date').textContent = `Hari ini, ${dateStr}`;
+      
+      // Random hadits
+      const randomHadits = haditsHarian[Math.floor(Math.random() * haditsHarian.length)];
+      document.getElementById('hadits-display').textContent = `"${randomHadits.text}"`;
+    }
+    
+    function updateProgressMeter() {
+      const today = new Date().toISOString().split('T')[0];
+      const todayData = allData.find(d => d.type === 'ibadah' && d.userId === currentUser.id && d.date === today);
+      
+      let completed = 0;
+      const total = ibadahList.length;
+      
+      if (todayData) {
+        ibadahList.forEach(item => {
+          if (todayData[item.id]) completed++;
+        });
+      }
+      
+      const percent = Math.round((completed / total) * 100);
+      const circumference = 2 * Math.PI * 56;
+      const offset = circumference - (percent / 100) * circumference;
+      
+      const circle = document.getElementById('progress-circle');
+      circle.style.strokeDashoffset = offset;
+      
+      if (percent === 100) {
+        circle.style.stroke = '#D4AF37';
+      } else {
+        circle.style.stroke = '#0F9D58';
+      }
+      
+      document.getElementById('progress-percent').textContent = percent + '%';
+      
+      const badge = document.getElementById('achievement-badge');
+      const targetBadge = document.getElementById('target-achievement');
+      
+      if (percent === 100) {
+        badge.classList.remove('hidden');
+        targetBadge.classList.remove('hidden');
+        showConfetti();
+      } else {
+        badge.classList.add('hidden');
+        targetBadge.classList.add('hidden');
+      }
+    }
+    
+    function updateQuickChecklist() {
+      const container = document.getElementById('quick-checklist');
+      const today = new Date().toISOString().split('T')[0];
+      const todayData = allData.find(d => d.type === 'ibadah' && d.userId === currentUser.id && d.date === today);
+      
+      const quickItems = [
+        { id: 'shalat_subuh', name: 'Subuh', icon: '🌅' },
+        { id: 'tilawah', name: 'Tilawah', icon: '📖' },
+        { id: 'sedekah', name: 'Sedekah', icon: '💰' },
+        { id: 'tarawih', name: 'Tarawih', icon: '🕌' }
+      ];
+      
+      container.innerHTML = quickItems.map(item => {
+        const isChecked = todayData && todayData[item.id];
+        return `
+          <div class="flex items-center gap-2 p-2 rounded-lg ${isChecked ? 'bg-emerald-50' : 'bg-gray-50'}">
+            <span class="${isChecked ? 'text-emerald-500' : 'text-gray-400'}">${isChecked ? '✓' : '○'}</span>
+            <span class="text-sm ${isChecked ? 'text-emerald-600' : 'text-gray-500'}">${item.name}</span>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function renderIbadahCards() {
+      const container = document.getElementById('ibadah-cards');
+      const today = new Date().toISOString().split('T')[0];
+      
+      container.innerHTML = ibadahList.map(item => `
+        <div class="bg-white rounded-2xl p-5 card-shadow flex items-center justify-between" id="card-${item.id}">
+          <div class="flex items-center gap-4">
+            <span class="text-3xl">${item.icon}</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">${item.name}</h3>
+              <p class="text-sm text-gray-500">Tap untuk mencatat</p>
+            </div>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="check-${item.id}" class="sr-only peer" onchange="toggleIbadah('${item.id}')">
+            <div class="w-14 h-8 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-emerald-500"></div>
+          </label>
+        </div>
+      `).join('');
+      
+      updateIbadahCheckboxes();
+    }
+    
+    function updateIbadahCheckboxes() {
+      if (!currentUser) return;
+      
+      const today = new Date().toISOString().split('T')[0];
+      const todayData = allData.find(d => d.type === 'ibadah' && d.userId === currentUser.id && d.date === today);
+      
+      ibadahList.forEach(item => {
+        const checkbox = document.getElementById('check-' + item.id);
+        if (checkbox && todayData) {
+          checkbox.checked = todayData[item.id] || false;
+        }
+      });
+    }
+    
+    async function toggleIbadah(ibadahId) {
+      if (!currentUser) return;
+      
+      const today = new Date().toISOString().split('T')[0];
+      const checkbox = document.getElementById('check-' + ibadahId);
+      const isChecked = checkbox.checked;
+      
+      let existingRecord = allData.find(d => d.type === 'ibadah' && d.userId === currentUser.id && d.date === today);
+      
+      if (existingRecord) {
+        existingRecord[ibadahId] = isChecked;
+        const result = await window.dataSdk.update(existingRecord);
+        if (!result.isOk) {
+          showToast('Gagal menyimpan perubahan', 'error');
+          checkbox.checked = !isChecked;
+          return;
+        }
+      } else {
+        if (recordCount >= 999) {
+          showToast('Batas penyimpanan tercapai', 'error');
+          checkbox.checked = false;
+          return;
+        }
+        
+        const newRecord = {
+          type: 'ibadah',
+          userId: currentUser.id,
+          userName: currentUser.name,
+          userClass: currentUser.class,
+          userRole: currentUser.role,
+          date: today,
+          shalat_subuh: false,
+          shalat_zuhur: false,
+          shalat_asar: false,
+          shalat_maghrib: false,
+          shalat_isya: false,
+          tilawah: false,
+          sedekah: false,
+          tarawih: false,
+          created_at: new Date().toISOString()
+        };
+        newRecord[ibadahId] = isChecked;
+        
+        const result = await window.dataSdk.create(newRecord);
+        if (!result.isOk) {
+          showToast('Gagal menyimpan', 'error');
+          checkbox.checked = false;
+          return;
+        }
+      }
+      
+      const ibadahItem = ibadahList.find(i => i.id === ibadahId);
+      showToast(isChecked ? `${ibadahItem.name} tercatat! ✓` : `${ibadahItem.name} dibatalkan`, isChecked ? 'success' : 'info');
+    }
+    
+    // ==================== JOURNAL ====================
+    function selectEmoji(emoji) {
+      selectedEmoji = emoji;
+      document.querySelectorAll('.emoji-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-100', 'ring-2', 'ring-emerald-500');
+      });
+      event.target.classList.add('bg-emerald-100', 'ring-2', 'ring-emerald-500');
+    }
+    
+    async function saveJournal() {
+      if (!currentUser) return;
+      
+      const content = document.getElementById('journal-input').value.trim();
+      if (!content) {
+        showToast('Silakan tulis refleksi terlebih dahulu', 'error');
+        return;
+      }
+      
+      if (recordCount >= 999) {
+        showToast('Batas penyimpanan tercapai', 'error');
+        return;
+      }
+      
+      const btn = document.getElementById('save-journal-btn');
+      btn.disabled = true;
+      btn.textContent = '⏳ Menyimpan...';
+      
+      const today = new Date().toISOString().split('T')[0];
+      
+      const journalRecord = {
+        type: 'journal',
+        userId: currentUser.id,
+        userName: currentUser.name,
+        userClass: currentUser.class,
+        userRole: currentUser.role,
+        date: today,
+        journal_content: content,
+        journal_emoji: selectedEmoji,
+        created_at: new Date().toISOString()
+      };
+      
+      const result = await window.dataSdk.create(journalRecord);
+      
+      btn.disabled = false;
+      btn.textContent = '💾 Simpan Refleksi';
+      
+      if (result.isOk) {
+        document.getElementById('journal-input').value = '';
+        showToast('Refleksi berhasil disimpan! 📝', 'success');
+      } else {
+        showToast('Gagal menyimpan refleksi', 'error');
+      }
+    }
+    
+    function updateJournalHistory() {
+      if (!currentUser) return;
+      
+      const container = document.getElementById('journal-history');
+      const journals = allData.filter(d => d.type === 'journal' && d.userId === currentUser.id)
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      
+      if (journals.length === 0) {
+        container.innerHTML = '<p class="text-gray-500 text-sm">Belum ada refleksi tersimpan</p>';
+        return;
+      }
+      
+      container.innerHTML = journals.slice(0, 10).map(j => {
+        const date = new Date(j.created_at);
+        const dateStr = date.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' });
+        return `
+          <div class="border-l-4 border-emerald-500 pl-4 py-2">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xl">${j.journal_emoji || '😊'}</span>
+              <span class="text-sm text-gray-500">${dateStr}</span>
+            </div>
+            <p class="text-gray-700">${j.journal_content}</p>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // ==================== QURAN ====================
+    function toggleQuranMode() {
+      isQuranDarkMode = !isQuranDarkMode;
+      const container = document.getElementById('quran-container');
+      const btn = document.getElementById('quran-mode-btn');
+      
+      if (isQuranDarkMode) {
+        container.classList.add('bg-gray-900', 'text-white');
+        container.classList.remove('bg-white');
+        btn.textContent = '☀️ Terang';
+      } else {
+        container.classList.remove('bg-gray-900', 'text-white');
+        container.classList.add('bg-white');
+        btn.textContent = '🌙 Gelap';
+      }
+    }
+    
+    async function markQuranRead() {
+      if (!currentUser) return;
+      
+      const today = new Date().toISOString().split('T')[0];
+      let existingRecord = allData.find(d => d.type === 'quran' && d.userId === currentUser.id && d.date === today);
+      
+      if (existingRecord) {
+        existingRecord.quran_progress = (existingRecord.quran_progress || 0) + 1;
+        await window.dataSdk.update(existingRecord);
+      } else {
+        if (recordCount >= 999) {
+          showToast('Batas penyimpanan tercapai', 'error');
+          return;
+        }
+        
+        const newRecord = {
+          type: 'quran',
+          userId: currentUser.id,
+          userName: currentUser.name,
+          userClass: currentUser.class,
+          userRole: currentUser.role,
+          date: today,
+          quran_progress: 1,
+          created_at: new Date().toISOString()
+        };
+        await window.dataSdk.create(newRecord);
+      }
+      
+      showToast('Tilawah tercatat! Barakallah 📖', 'success');
+      updateQuranProgress();
+    }
+    
+    function updateQuranProgress() {
+      if (!currentUser) return;
+      
+      const quranRecords = allData.filter(d => d.type === 'quran' && d.userId === currentUser.id);
+      const totalPages = quranRecords.reduce((sum, r) => sum + (r.quran_progress || 0), 0);
+      const khatamPercent = Math.min(100, Math.round((totalPages / 604) * 100));
+      
+      document.getElementById('quran-progress-text').textContent = `${totalPages} halaman dibaca`;
+      document.getElementById('quran-progress-bar').style.width = `${Math.min(100, (totalPages % 20) * 5)}%`;
+      document.getElementById('khatam-progress').textContent = khatamPercent + '%';
+      document.getElementById('target-juz').textContent = `Juz ${Math.floor(totalPages / 20) + 1}`;
+    }
+    
+    // ==================== EDUKASI ====================
+    function renderEdukasi(filter = 'semua') {
+      const container = document.getElementById('edukasi-cards');
+      const filtered = filter === 'semua' ? edukasiContent : edukasiContent.filter(e => e.category === filter);
+      
+      container.innerHTML = filtered.map(edu => `
+        <div class="bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-lg transition-all">
+          <div class="h-32 bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center">
+            <span class="text-5xl">${edu.icon}</span>
+          </div>
+          <div class="p-5">
+            <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-xs font-medium mb-2">${edu.category}</span>
+            <h3 class="font-semibold text-gray-800 mb-2">${edu.title}</h3>
+            <p class="text-sm text-gray-500 mb-4">${edu.desc}</p>
+            <button class="text-emerald-600 text-sm font-medium hover:text-emerald-700">Baca Selengkapnya →</button>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function filterEdukasi(filter) {
+      document.querySelectorAll('.edu-filter').forEach(btn => {
+        btn.classList.remove('bg-emerald-500', 'text-white');
+        btn.classList.add('bg-gray-100', 'text-gray-600');
+      });
+      
+      const activeBtn = document.querySelector(`.edu-filter[data-filter="${filter}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-emerald-500', 'text-white');
+        activeBtn.classList.remove('bg-gray-100', 'text-gray-600');
+      }
+      
+      renderEdukasi(filter);
+    }
+    
+    // ==================== STATISTIK ====================
+    function updateStatistics() {
+      if (!currentUser) return;
+      
+      const userIbadah = allData.filter(d => d.type === 'ibadah' && d.userId === currentUser.id);
+      const userQuran = allData.filter(d => d.type === 'quran' && d.userId === currentUser.id);
+      
+      // Calculate streak
+      let streak = 0;
+      const dates = [...new Set(userIbadah.map(d => d.date))].sort().reverse();
+      const today = new Date();
+      
+      for (let i = 0; i < dates.length; i++) {
+        const checkDate = new Date(today);
+        checkDate.setDate(checkDate.getDate() - i);
+        const dateStr = checkDate.toISOString().split('T')[0];
+        
+        if (dates.includes(dateStr)) {
+          streak++;
+        } else {
+          break;
+        }
+      }
+      
+      // Calculate totals
+      let totalIbadah = 0;
+      userIbadah.forEach(record => {
+        ibadahList.forEach(item => {
+          if (record[item.id]) totalIbadah++;
+        });
+      });
+      
+      const totalQuran = userQuran.reduce((sum, r) => sum + (r.quran_progress || 0), 0);
+      
+      document.getElementById('stat-streak').textContent = streak;
+      document.getElementById('stat-completed').textContent = totalIbadah;
+      document.getElementById('stat-quran').textContent = totalQuran;
+      
+      updateQuranProgress();
+    }
+    
+    function renderWeeklyChart() {
+      const container = document.getElementById('weekly-chart');
+      const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+      
+      container.innerHTML = days.map((day, i) => {
+        const randomPercent = Math.floor(Math.random() * 100);
+        return `
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-gray-500">${day}</span>
+            <div class="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+              <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 h-full rounded-full transition-all" style="width: ${randomPercent}%"></div>
+            </div>
+            <span class="text-sm text-gray-600 w-10">${randomPercent}%</span>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function updateRecentActivity() {
+      if (!currentUser) return;
+      
+      const container = document.getElementById('recent-activity');
+      const allUserData = allData.filter(d => d.userId === currentUser.id)
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      
+      if (allUserData.length === 0) {
+        container.innerHTML = '<p class="text-gray-500 text-sm">Belum ada aktivitas tercatat</p>';
+        return;
+      }
+      
+      container.innerHTML = allUserData.slice(0, 5).map(activity => {
+        const date = new Date(activity.created_at);
+        const timeStr = date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        const dateStr = date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+        
+        let icon = '📝';
+        let text = 'Aktivitas tercatat';
+        
+        if (activity.type === 'ibadah') {
+          icon = '✅';
+          text = 'Ibadah dicatat';
+        } else if (activity.type === 'journal') {
+          icon = '📔';
+          text = 'Refleksi ditulis';
+        } else if (activity.type === 'quran') {
+          icon = '📖';
+          text = 'Tilawah tercatat';
+        }
+        
+        return `
+          <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
+            <span class="text-xl">${icon}</span>
+            <div class="flex-1">
+              <p class="text-sm font-medium text-gray-700">${text}</p>
+              <p class="text-xs text-gray-500">${dateStr} • ${timeStr}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function updateProfil() {
+      if (!currentUser) return;
+      
+      const userIbadah = allData.filter(d => d.type === 'ibadah' && d.userId === currentUser.id);
+      const userJournal = allData.filter(d => d.type === 'journal' && d.userId === currentUser.id);
+      
+      const uniqueDays = new Set(userIbadah.map(d => d.date)).size;
+      let totalShalat = 0;
+      let totalTilawah = 0;
+      
+      userIbadah.forEach(record => {
+        ['shalat_subuh', 'shalat_zuhur', 'shalat_asar', 'shalat_maghrib', 'shalat_isya'].forEach(s => {
+          if (record[s]) totalShalat++;
+        });
+        if (record.tilawah) totalTilawah++;
+      });
+      
+      document.getElementById('profil-days').textContent = uniqueDays + ' hari';
+      document.getElementById('profil-shalat').textContent = totalShalat + ' waktu';
+      document.getElementById('profil-tilawah').textContent = totalTilawah + ' hari';
+      document.getElementById('profil-journal').textContent = userJournal.length + ' entri';
+    }
+    
+    // ==================== ADMIN ====================
+    function updateAdminDashboard() {
+      if (currentUser?.role !== 'admin') return;
+      
+      const users = [...new Set(allData.map(d => d.userId))].filter(id => id !== 'admin');
+      const ibadahRecords = allData.filter(d => d.type === 'ibadah');
+      
+      let totalCompleted = 0;
+      let totalPossible = 0;
+      
+      ibadahRecords.forEach(record => {
+        ibadahList.forEach(item => {
+          totalPossible++;
+          if (record[item.id]) totalCompleted++;
+        });
+      });
+      
+      const avgProgress = totalPossible > 0 ? Math.round((totalCompleted / totalPossible) * 100) : 0;
+      
+      document.getElementById('admin-users').textContent = users.length;
+      document.getElementById('admin-entries').textContent = allData.length;
+      document.getElementById('admin-completed').textContent = totalCompleted;
+      document.getElementById('admin-avg').textContent = avgProgress + '%';
+      
+      renderAdminTable();
+      renderClassRanking();
+    }
+    
+    function renderAdminTable() {
+      const tbody = document.getElementById('admin-table-body');
+      const filterClass = document.getElementById('admin-filter-class').value;
+      
+      const userMap = new Map();
+      
+      allData.forEach(record => {
+        if (record.userId === 'admin') return;
+        if (filterClass && record.userClass !== filterClass) return;
+        
+        if (!userMap.has(record.userId)) {
+          userMap.set(record.userId, {
+            name: record.userName,
+            class: record.userClass,
+            shalatCount: 0,
+            tilawahCount: 0,
+            totalIbadah: 0,
+            days: new Set()
+          });
+        }
+        
+        const user = userMap.get(record.userId);
+        
+        if (record.type === 'ibadah') {
+          user.days.add(record.date);
+          ['shalat_subuh', 'shalat_zuhur', 'shalat_asar', 'shalat_maghrib', 'shalat_isya'].forEach(s => {
+            if (record[s]) user.shalatCount++;
+          });
+          if (record.tilawah) user.tilawahCount++;
+          ibadahList.forEach(item => {
+            if (record[item.id]) user.totalIbadah++;
+          });
+        }
+      });
+      
+      if (userMap.size === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center py-8 text-gray-500">Belum ada data pengguna</td></tr>';
+        return;
+      }
+      
+      const sortedUsers = [...userMap.entries()].sort((a, b) => b[1].totalIbadah - a[1].totalIbadah);
+      
+      tbody.innerHTML = sortedUsers.map(([userId, user]) => {
+        const progress = Math.round((user.totalIbadah / (user.days.size * ibadahList.length || 1)) * 100);
+        const points = user.totalIbadah * 10;
+        
+        return `
+          <tr class="border-b border-gray-100 hover:bg-gray-50">
+            <td class="py-3 px-4 font-medium">${user.name}</td>
+            <td class="py-3 px-4 text-gray-500">${user.class}</td>
+            <td class="py-3 px-4 text-center">
+              <div class="flex items-center justify-center gap-2">
+                <div class="w-16 bg-gray-200 rounded-full h-2">
+                  <div class="bg-emerald-500 h-2 rounded-full" style="width: ${progress}%"></div>
+                </div>
+                <span class="text-sm">${progress}%</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-center">${user.shalatCount}</td>
+            <td class="py-3 px-4 text-center">${user.tilawahCount}</td>
+            <td class="py-3 px-4 text-center font-semibold text-emerald-600">${points}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+    
+    function filterAdminData() {
+      renderAdminTable();
+    }
+    
+    function renderClassRanking() {
+      const container = document.getElementById('class-ranking');
+      const classMap = new Map();
+      
+      allData.forEach(record => {
+        if (!record.userClass || record.userClass === 'Admin') return;
+        
+        if (!classMap.has(record.userClass)) {
+          classMap.set(record.userClass, { total: 0, users: new Set() });
+        }
+        
+        const cls = classMap.get(record.userClass);
+        cls.users.add(record.userId);
+        
+        if (record.type === 'ibadah') {
+          ibadahList.forEach(item => {
+            if (record[item.id]) cls.total++;
+          });
+        }
+      });
+      
+      if (classMap.size === 0) {
+        container.innerHTML = '<p class="text-gray-500 text-sm">Belum ada data ranking</p>';
+        return;
+      }
+      
+      const sorted = [...classMap.entries()].sort((a, b) => b[1].total - a[1].total);
+      const maxTotal = sorted[0][1].total;
+      
+      container.innerHTML = sorted.map(([className, data], index) => {
+        const percent = maxTotal > 0 ? Math.round((data.total / maxTotal) * 100) : 0;
+        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🏅';
+        
+        return `
+          <div class="flex items-center gap-3">
+            <span class="text-xl">${medal}</span>
+            <span class="w-20 font-medium">${className}</span>
+            <div class="flex-1 bg-gray-200 rounded-full h-3">
+              <div class="bg-gradient-to-r ${index === 0 ? 'from-amber-400 to-amber-500' : 'from-emerald-500 to-emerald-600'} h-3 rounded-full transition-all" style="width: ${percent}%"></div>
+            </div>
+            <span class="text-sm text-gray-600 w-16 text-right">${data.total} pts</span>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function exportToPDF() {
+      showToast('Fitur export PDF sedang dalam pengembangan', 'info');
+    }
+    
+    // ==================== PENDAFTARAN ====================
+    function switchRegistrationTab(tab) {
+      const tabForm = document.getElementById('tab-form');
+      const tabList = document.getElementById('tab-list');
+      const formDiv = document.getElementById('registration-form');
+      const listDiv = document.getElementById('registration-list');
+      
+      if (tab === 'form') {
+        tabForm.classList.add('bg-white', 'shadow', 'text-emerald-600');
+        tabForm.classList.remove('text-gray-500');
+        tabList.classList.remove('bg-white', 'shadow', 'text-emerald-600');
+        tabList.classList.add('text-gray-500');
+        formDiv.classList.remove('hidden');
+        listDiv.classList.add('hidden');
+      } else {
+        tabList.classList.add('bg-white', 'shadow', 'text-emerald-600');
+        tabList.classList.remove('text-gray-500');
+        tabForm.classList.remove('bg-white', 'shadow', 'text-emerald-600');
+        tabForm.classList.add('text-gray-500');
+        listDiv.classList.remove('hidden');
+        formDiv.classList.add('hidden');
+        renderRegistrantsList();
+      }
+    }
+
+    async function submitRegistration(e) {
+      e.preventDefault();
+      
+      const btn = document.getElementById('btn-submit-registration');
+      btn.disabled = true;
+      btn.textContent = '⏳ Memproses...';
+
+      const registrationData = {
+        type: 'registration',
+        nama_lengkap: document.getElementById('input-nama-lengkap').value,
+        jenis_kelamin: document.getElementById('input-jenis-kelamin').value,
+        tempat_lahir: document.getElementById('input-tempat-lahir').value,
+        tanggal_lahir: document.getElementById('input-tanggal-lahir').value,
+        nomor_induk: document.getElementById('input-nomor-induk').value || '-',
+        asal_sekolah: document.getElementById('input-asal-sekolah').value,
+        alamat: document.getElementById('input-alamat').value,
+        email: document.getElementById('input-email').value,
+        telepon: document.getElementById('input-telepon').value,
+        nama_ayah: document.getElementById('input-nama-ayah').value,
+        nama_ibu: document.getElementById('input-nama-ibu').value,
+        telepon_orang_tua: document.getElementById('input-telepon-orang-tua').value,
+        tanggal_daftar: new Date().toISOString().split('T')[0],
+        status_daftar: 'Menunggu Verifikasi',
+        created_at: new Date().toISOString()
+      };
+
+      if (recordCount >= 999) {
+        showToast('Batas penyimpanan tercapai', 'error');
+        btn.disabled = false;
+        btn.textContent = '✓ Daftar Sekarang';
+        return;
+      }
+
+      const result = await window.dataSdk.create(registrationData);
+      
+      btn.disabled = false;
+      btn.textContent = '✓ Daftar Sekarang';
+      
+      if (result.isOk) {
+        document.getElementById('form-pendaftaran').reset();
+        showToast('Pendaftaran berhasil! Silakan tunggu verifikasi admin.', 'success');
+        setTimeout(() => {
+          switchRegistrationTab('list');
+        }, 1500);
+      } else {
+        showToast('Gagal menyimpan pendaftaran', 'error');
+      }
+    }
+
+    function renderRegistrantsList() {
+      const tbody = document.getElementById('registrants-table-body');
+      const registrants = allData.filter(d => d.type === 'registration').sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      
+      if (registrants.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8 text-gray-500">Belum ada pendaftar</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = registrants.map((reg, index) => {
+        const ttl = `${reg.tempat_lahir}, ${new Date(reg.tanggal_lahir).toLocaleDateString('id-ID')}`;
+        const gender = reg.jenis_kelamin.charAt(0).toUpperCase();
+        const tglDaftar = new Date(reg.tanggal_daftar).toLocaleDateString('id-ID');
+        const statusColor = reg.status_daftar === 'Diterima' ? 'text-emerald-600' : reg.status_daftar === 'Ditolak' ? 'text-red-600' : 'text-yellow-600';
+        
+        return `
+          <tr class="border-b border-gray-100 hover:bg-gray-50">
+            <td class="py-3 px-4">${index + 1}</td>
+            <td class="py-3 px-4 font-medium">${reg.nama_lengkap}</td>
+            <td class="py-3 px-4 text-xs text-gray-500">${ttl}</td>
+            <td class="py-3 px-4 text-center">${gender}</td>
+            <td class="py-3 px-4 text-xs">${reg.email}<br>${reg.telepon}</td>
+            <td class="py-3 px-4 text-center text-xs">${tglDaftar}</td>
+            <td class="py-3 px-4 text-center">
+              <button onclick="showDetailModal(${allData.indexOf(reg)})" class="px-3 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 text-xs font-medium transition-all">Lihat</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    let currentDetailIndex = -1;
+
+    function showDetailModal(index) {
+      currentDetailIndex = index;
+      const reg = allData[index];
+      const content = document.getElementById('detail-content');
+      const dob = new Date(reg.tanggal_lahir);
+      const age = new Date().getFullYear() - dob.getFullYear();
+      
+      content.innerHTML = `
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-gray-500 font-medium">Nama Lengkap</p>
+            <p class="font-semibold">${reg.nama_lengkap}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Jenis Kelamin</p>
+            <p class="font-semibold">${reg.jenis_kelamin}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Tempat, Tanggal Lahir</p>
+            <p class="font-semibold">${reg.tempat_lahir}, ${dob.toLocaleDateString('id-ID')} (${age} tahun)</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Asal Sekolah</p>
+            <p class="font-semibold">${reg.asal_sekolah}</p>
+          </div>
+          <div class="col-span-2">
+            <p class="text-gray-500 font-medium">Alamat</p>
+            <p class="font-semibold">${reg.alamat}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Email</p>
+            <p class="font-semibold">${reg.email}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Telepon</p>
+            <p class="font-semibold">${reg.telepon}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Nama Ayah</p>
+            <p class="font-semibold">${reg.nama_ayah}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Nama Ibu</p>
+            <p class="font-semibold">${reg.nama_ibu}</p>
+          </div>
+          <div class="col-span-2">
+            <p class="text-gray-500 font-medium">Telepon Orang Tua</p>
+            <p class="font-semibold">${reg.telepon_orang_tua}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Tanggal Daftar</p>
+            <p class="font-semibold">${new Date(reg.tanggal_daftar).toLocaleDateString('id-ID')}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 font-medium">Status</p>
+            <p class="font-semibold ${reg.status_daftar === 'Diterima' ? 'text-emerald-600' : reg.status_daftar === 'Ditolak' ? 'text-red-600' : 'text-yellow-600'}">${reg.status_daftar}</p>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('detail-modal').classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detail-modal').classList.add('hidden');
+      currentDetailIndex = -1;
+    }
+
+    async function deleteRegistrant() {
+      if (currentDetailIndex < 0) return;
+      
+      const reg = allData[currentDetailIndex];
+      const confirmed = confirm(`Hapus pendaftaran ${reg.nama_lengkap}?`);
+      if (!confirmed) return;
+      
+      const result = await window.dataSdk.delete(reg);
+      if (result.isOk) {
+        closeDetailModal();
+        renderRegistrantsList();
+        showToast('Pendaftaran dihapus', 'success');
+      } else {
+        showToast('Gagal menghapus', 'error');
+      }
+    }
+
+    function searchRegistrants() {
+      const searchTerm = document.getElementById('search-pendaftar').value.toLowerCase();
+      const rows = document.querySelectorAll('#registrants-table-body tr');
+      
+      rows.forEach(row => {
+        if (row.cells.length === 7) {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(searchTerm) ? '' : 'none';
+        }
+      });
+    }
+
+    function exportRegistrants() {
+      const registrants = allData.filter(d => d.type === 'registration');
+      if (registrants.length === 0) {
+        showToast('Tidak ada data untuk diekspor', 'error');
+        return;
+      }
+
+      let csv = 'No,Nama,TTL,Jenis Kelamin,Email,Telepon,Orang Tua,Telepon Orang Tua,Tanggal Daftar\n';
+      
+      registrants.forEach((reg, i) => {
+        csv += `"${i+1}","${reg.nama_lengkap}","${reg.tempat_lahir}, ${reg.tanggal_lahir}","${reg.jenis_kelamin}","${reg.email}","${reg.telepon}","${reg.nama_ayah}/${reg.nama_ibu}","${reg.telepon_orang_tua}","${reg.tanggal_daftar}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `pendaftar_${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      window.URL.revokeObjectURL(url);
+      
+      showToast('Data berhasil diekspor', 'success');
+    }
+
+    // ==================== UTILITIES ====================
+    function toggleDarkMode() {
+      isDarkMode = !isDarkMode;
+      document.body.classList.toggle('dark-mode');
+      document.getElementById('dark-mode-icon').textContent = isDarkMode ? '☀️' : '🌙';
+    }
+    
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      const bgColor = type === 'success' ? 'bg-emerald-500' : type === 'error' ? 'bg-red-500' : 'bg-gray-700';
+      
+      toast.className = `toast px-4 py-3 ${bgColor} text-white rounded-lg shadow-lg flex items-center gap-2`;
+      toast.innerHTML = `
+        <span>${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span>
+        <span>${message}</span>
+      `;
+      
+      container.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+    
+    function showConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['#0F9D58', '#D4AF37', '#FFD700', '#10B981', '#F59E0B'];
+      
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece absolute w-3 h-3 rounded-full';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.top = '50%';
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        container.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 1500);
+      }
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d03921bd5855cd8',t:'MTc3MTQ4MTEwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>https://gemini.google.com/share/2343a1ec84c5
